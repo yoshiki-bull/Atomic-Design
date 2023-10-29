@@ -1,7 +1,11 @@
+//import React, { useContext } from "react";
 import styled from "styled-components";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
-import { useLocation } from "react-router-dom";
+import { SecondaryButton } from "../atoms/button/SecondaryButton";
+// import { UserContext } from "../../providers/UserProvider";
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
 const users = [...Array(10).keys()].map((val) => {
   return {
@@ -12,23 +16,26 @@ const users = [...Array(10).keys()].map((val) => {
     email: "12345@example.com",
     phone: "080-1111-2222",
     company: {
-      name: "テスト株式会社"
+      name: "テスト株式会社",
     },
-    website: "https://google.com"
+    website: "https://google.com",
   };
 });
 
 export const Users = () => {
-  const { state } = useLocation();
-  const isAdmin = state ? state.isAdmin : false;
-
+  // const { userInfo, setUserInfo } = useContext(UserContext);
+  const [userInfo, setUserInfo] = useRecoilState(userState);
+  
+  const onClickSwitch = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
   return (
     <StyledConstainer>
       <h2>ユーザー一覧</h2>
       <SearchInput />
+      <br />
+      <SecondaryButton onClick={onClickSwitch}>切り替え</SecondaryButton>
       <StyledUserArea>
         {users.map((user) => (
-          <UserCard key={user.id} user={user} isAdmin={isAdmin} />
+          <UserCard key={user.id} user={user} />
         ))}
       </StyledUserArea>
     </StyledConstainer>
