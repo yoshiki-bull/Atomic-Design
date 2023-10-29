@@ -39,14 +39,28 @@ export const UserProvider = (props) => {
 
 ### 使うもの
 - `createContext()`  
-=> グローバルなstateを扱うためのコンテキストを生成
+=> グローバルなstateを扱うためのコンテキストを生成  
 
 - `useState()`  
-=> 動的に値が変わる実際に扱う`state`と関数を宣言
+=> 動的に値が変わる実際に扱う`state`と関数を宣言  
 
 - `useContext()`  
-=> コンテキストを参照するためのReact Hooks
+=> コンテキストを参照するためのReact Hooks  
 
 - `<Context.Provider value={state, set関数} >`  
-=> グローバルに参照させたいstateを設定
+=> グローバルに参照させたいstateを設定  
 
+## Contextとレンダリングの最適化
+Reactのコンポーネントは親が再レンダリングされれば、連動して全ての子も再レンダリングされる
+
+- Contextと再レンダリング  
+Contextを使う場合は、値が更新される際にどのコンポーネントが再レンダリングされるのか意識する必要がある。  
+
+- `memo()`を使う  
+=> Reactの「`memo()`」を使えば、監視するpropsに変更がない限り再レンダリングしない設定となる  
+=> Contextが変更された際の不必要な再レンダリングを防止する
+
+- 使用箇所
+  - `SearchInput`
+  - `UserCard`
+  - `UserIconWithName`
