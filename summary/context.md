@@ -64,3 +64,65 @@ Contextを使う場合は、値が更新される際にどのコンポーネン�
   - `SearchInput`
   - `UserCard`
   - `UserIconWithName`
+
+## Recoil でグローバルなstateを管理する
+- **Recoil**  
+=> Reactを開発しているFacebookが開発  
+=> グローバルなstateを非常に簡単にかんりできるライブラリ  
+
+- Recoil インストール
+  - `npm install recoil`
+  - `yarn add recoil`
+
+- グローバルなstateの定義
+```
+./store/userState.js
+
+import { atom } from "recoil";
+
+export const userState = atom({
+    key: "userState",
+    default: {isAdmin: false}
+})
+```
+
+- `import {atom} from "recoil";`  
+=> atom() を使う  
+
+- `key: {キー}`  
+=> システム全体でこの`state`を参照できるキーとなる一意のキーを指定  
+=> ファイル名に合わせるのが一般的  
+
+- `default: {デフォルトの値}`  
+=> グローバルなstateの初期値を設定する 
+
+## Recoilの機能
+
+- `RecoilRoot`コンポーネント  
+=> Recoilのstateを使うためには、全体のコンポーネントを`RecoilRoot`で囲う必要がある  
+=> 「App.js」で使用
+
+- `useRecoilState()`  
+=> `const [ userInfo, setUserInfo ] = useRecoilState(userState);`  
+=> Recoilのstateを参照するための機能  
+=> `useState()`のようにstateと更新関数を扱うことができる  
+=> 「Users/jsx」で使用
+
+- `useRecoilValue()`  
+=> `const userInfo = useRecoilValue(userState)`  
+=> stateの値のみを参照する場合に使用する（更新関数なし）  
+=> 「UserIconWithName.jsx」で使用
+
+- `useSetRecoilState()`  
+=> `const setUserInfo = useSetRecoilState(userState);`  
+=> set関数のみが必要な場合に使用する（値の参照はなし）  
+=> 値の更新だけ行う  
+=> 「Top.jsx」で使用
+
+## Recoilと再レンダリング
+
+- `useRecoilState()`  
+通常通り、stateの値が更新されたらコンポーネントを再レンダリングする
+
+- `useSetRecoilState()`  
+更新関数しか使わないため、stateの値が変更されたとしても再レンダリングしないようにRecoil側で処理される
