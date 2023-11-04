@@ -7,7 +7,7 @@
 ## 参考
 - [React & TypeScriptのプロジェクト作成](https://typescript-jp.gitbook.io/deep-dive/browser#purojekutono)
 
-## ① Create React App を利用する[←推奨]
+## ① Create React App を利用する←推奨
 TypeScriptを使用してReactのWebアプリケーションを作成する場合、  
 最も一般的な方法は、**Create React App**を使うこと。  
 このツールはReactの開発チームがメンテナンスを行っている。
