@@ -23,7 +23,7 @@ npx create-react-app my-app --template typescript
 3. http://localhost:3000/ にアクセスして動作を確認しながら開発を進めることができる
 
 ### Live Reload / Hot Reload
-TypeScriptの開発用サーバは、ファイルの更新を監視しているので、  
+TypeScriptの開発用サーバは、ファイルの更新を監視しているため、  
 TypeScriptのコードを変更すれば自動的にコンパイルされ、ブラウザがリロードされる。
 
 ### プロジェクトのビルド
@@ -32,7 +32,8 @@ TypeScriptのコードを変更すれば自動的にコンパイルされ、ブ�
 これで、Reactチームによって本番環境に最適化されたバンドルファイルを出力できる。
 
 ### プロジェクトの詳細設定内容
-Create React Appでプロジェクトを作成すると、下記のようなtsconfig.jsonが作成される。これを必要に応じて修正し、TypeScriptのコンパイラの動作を、好みに合わせて調整することができます。
+Create React Appでプロジェクトを作成すると、下記のようなtsconfig.jsonが作成される。 
+ これを必要に応じて修正し、TypeScriptのコンパイラの動作を、好みに合わせて調整することができます。
 
 ```
 {
