@@ -1,6 +1,6 @@
 # Node.jsの環境構築[NVM]
 
-**nvm(Node Version Manager)**を使用することで、Node.jsのバージョンを簡単に切り替えることができ、異なるNode.jsバージョンをプロジェクトごとに管理するなどといったことも可能。
+ **nvm(Node Version Manager)** を使用することで、Node.jsのバージョンを簡単に切り替えることができ、異なるNode.jsバージョンをプロジェクトごとに管理するなどといったことが可能。
 
 ## NVMでNode.jsをインストール
 ```
@@ -73,3 +73,5 @@ nvm use <version>
 ```
 nvm alias default <version>
 ```
+
+- [参考](https://qiita.com/ffggss/items/94f1c4c5d311db2ec71a)
